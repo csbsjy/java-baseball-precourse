@@ -32,6 +32,20 @@ public class Baseball {
 		return new Baseball(order, number);
 	}
 
+	public BaseballGameResult compareWith(Baseball baseball) {
+		if (equalsExactly(baseball)) {
+			return BaseballGameResult.STRIKE;
+		}
+		if (this.equals(baseball)) {
+			return BaseballGameResult.BALL;
+		}
+		return BaseballGameResult.NOTHING;
+	}
+
+	public boolean equalsExactly(Baseball baseball) {
+		return this.equals(baseball) && baseball.order == this.order;
+	}
+
 	/**
 	 * number가 같으면 같은 Baseball 로 간주한다
 	 */
