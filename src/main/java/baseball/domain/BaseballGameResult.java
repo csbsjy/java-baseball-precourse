@@ -6,9 +6,6 @@
  */
 package baseball.domain;
 
-/**
- * @author Jaeyeon Seo(KR20144)
- */
 enum BaseballGameResult {
 	STRIKE,
 	BALL,

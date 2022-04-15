@@ -42,7 +42,7 @@ public class Baseball {
 		return BaseballGameResult.NOTHING;
 	}
 
-	public boolean equalsExactly(Baseball baseball) {
+	private boolean equalsExactly(Baseball baseball) {
 		return this.equals(baseball) && baseball.order == this.order;
 	}
 

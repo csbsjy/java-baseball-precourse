@@ -34,12 +34,13 @@ class BaseballTest {
 		assertThat(Baseball.from(1, 3)).isEqualTo(Baseball.from(3, 3));
 	}
 
-	@DisplayName("순서와 숫자를 정확하게 비교한다")
+	@DisplayName("야구공끼리 비교해서 결과를 반환한다")
 	@Test
-	void equalsExactly() {
+	void compare() {
 		assertAll(
-			() -> assertThat(Baseball.from(1, 3).equalsExactly(Baseball.from(1, 3))).isTrue(),
-			() -> assertThat(Baseball.from(1, 3).equalsExactly(Baseball.from(1, 2))).isFalse(),
-			() -> assertThat(Baseball.from(1, 3).equalsExactly(Baseball.from(2, 3))).isFalse());
+			() -> assertThat(Baseball.from(1, 1).compareWith(Baseball.from(1, 1))).isEqualTo(BaseballGameResult.STRIKE),
+			() -> assertThat(Baseball.from(1, 1).compareWith(Baseball.from(2, 1))).isEqualTo(BaseballGameResult.BALL),
+			() -> assertThat(Baseball.from(1, 1).compareWith(Baseball.from(2, 2))).isEqualTo(BaseballGameResult.NOTHING)
+		);
 	}
 }
