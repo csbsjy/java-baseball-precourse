@@ -8,9 +8,6 @@ package baseball.domain;
 
 import java.util.Objects;
 
-/**
- * @author Jaeyeon Seo(KR20144)
- */
 public class BaseBall {
 	private static final int MIN_NUMBER = 1;
 	private static final int MAX_NUMBER = 9;
