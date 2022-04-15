@@ -10,7 +10,8 @@
 - 결과를 출력해야한다.   
     
 ## Domain 추출
-- BaseBall: 1-9 까지 숫자 보유 가능 
+- BaseBall: 1-9 까지 숫자 보유 가능
+- BaseBallBundle: 중복되지 않은 BaseBall 을 세개 가진 객체  
 - BaseBallGame: 사용자 입력과 랜덤 숫자를 가지고 결과를 판독하는 역할 
 - UI Domain: Input / Output  
 
