@@ -12,21 +12,21 @@ import java.util.Set;
 
 import org.assertj.core.util.Sets;
 
-import baseball.domain.BaseBall;
-import baseball.domain.BaseBallBundle;
+import baseball.domain.Baseball;
+import baseball.domain.BaseballBundle;
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomBaseBallGenerator {
+public class RandomBaseballGenerator {
 	private static final List<Integer> NUMBERS = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
-	private RandomBaseBallGenerator() {
+	private RandomBaseballGenerator() {
 	}
 
-	public static BaseBallBundle generate() {
-		Set<BaseBall> baseBalls = Sets.newHashSet();
-		while (!BaseBallBundle.validToCreate(baseBalls)) {
-			baseBalls.add(BaseBall.from(Randoms.pickNumberInList(NUMBERS)));
+	public static BaseballBundle generate() {
+		Set<Baseball> baseballs = Sets.newHashSet();
+		while (!BaseballBundle.validToCreate(baseballs)) {
+			baseballs.add(Baseball.from(Randoms.pickNumberInList(NUMBERS)));
 		}
-		return BaseBallBundle.from(baseBalls);
+		return BaseballBundle.from(baseballs);
 	}
 }
