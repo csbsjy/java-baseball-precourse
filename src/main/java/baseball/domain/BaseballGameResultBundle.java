@@ -6,19 +6,30 @@
  */
 package baseball.domain;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * @author Jaeyeon Seo(KR20144)
  */
 public class BaseballGameResultBundle {
-	private final Map<BaseballGameResult, Integer> countByResult;
+	private final Map<BaseballGameResult, Integer> countByResult = new HashMap<>();
 
-	private BaseballGameResultBundle(Map<BaseballGameResult, Integer> countByResult) {
-		this.countByResult = countByResult;
+	public BaseballGameResultBundle() {
+		init();
 	}
 
-	public static BaseballGameResultBundle from(Map<BaseballGameResult, Integer> countByResult) {
-		return new BaseballGameResultBundle(countByResult);
+	private void init() {
+		countByResult.put(BaseballGameResult.STRIKE, 0);
+		countByResult.put(BaseballGameResult.BALL, 0);
+		countByResult.put(BaseballGameResult.NOTHING, 0);
+	}
+
+	public void addResult(BaseballGameResult result) {
+		this.countByResult.put(result, countByResult.get(result) + 1);
+	}
+
+	public int countBy(BaseballGameResult baseballGameResult) {
+		return countByResult.get(baseballGameResult);
 	}
 }

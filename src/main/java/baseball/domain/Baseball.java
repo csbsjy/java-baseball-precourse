@@ -6,6 +6,8 @@
  */
 package baseball.domain;
 
+import java.util.Objects;
+
 public class Baseball {
 	private final BaseballOrder order; // Domain 으로 빼기
 	private final BaseballNumber number;
@@ -36,5 +38,22 @@ public class Baseball {
 
 	private boolean equalsNumber(Baseball baseball) {
 		return this.number.equals(baseball.number);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Baseball baseball = (Baseball)o;
+		return Objects.equals(number, baseball.number);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(number);
 	}
 }

@@ -6,8 +6,7 @@
  */
 package baseball.domain;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
 import java.util.Set;
 
 public class BaseballBundle {
@@ -17,30 +16,41 @@ public class BaseballBundle {
 
 	private BaseballBundle(Set<Baseball> baseballs) {
 		this.baseballs = baseballs;
-		checkUniqueBallNumbers(baseballs);
+		checkUniqueBallCounts(baseballs);
 	}
 
 	public static BaseballBundle from(Set<Baseball> baseballs) {
 		return new BaseballBundle(baseballs);
 	}
 
-	public static boolean validToCreate(Set<Baseball> baseballs) {
-		return baseballs.size() == 3;
+	public static boolean enoughToCreate(Set<Baseball> baseballs) {
+		return baseballs.size() == BALL_COUNT;
 	}
 
-	// TODO T.C
-	public BaseballGameResultBundle compareWith(BaseballBundle baseballBundle) {
-		Map<BaseballGameResult, Integer> results = new HashMap<>();
-		for (Baseball baseball : baseballs) {
-			// TODO: 수정
-			for (Baseball another : baseballBundle.baseballs) {
-				results.put(baseball.compareWith(another), results.get(baseball.compareWith(another)) + 1);
-			}
+	public BaseballGameResultBundle compareWith(BaseballBundle inputBaseballs) {
+		BaseballGameResultBundle baseballGameResultBundle = new BaseballGameResultBundle();
+		for (Baseball another : inputBaseballs.baseballs) {
+			BaseballGameResult result = compareWith(another);
+			baseballGameResultBundle.addResult(result);
 		}
-		return BaseballGameResultBundle.from(results);
+		return baseballGameResultBundle;
 	}
 
-	private void checkUniqueBallNumbers(Set<Baseball> baseballs) {
+	private BaseballGameResult compareWith(Baseball inputBall) {
+		Set<BaseballGameResult> results = new HashSet<>();
+		for (Baseball baseball : this.baseballs) {
+			results.add(baseball.compareWith(inputBall));
+		}
+		if (results.contains(BaseballGameResult.STRIKE)) {
+			return BaseballGameResult.STRIKE;
+		}
+		if (results.contains(BaseballGameResult.BALL)) {
+			return BaseballGameResult.BALL;
+		}
+		return BaseballGameResult.NOTHING;
+	}
+
+	private void checkUniqueBallCounts(Set<Baseball> baseballs) {
 		if (baseballs.size() != BALL_COUNT) {
 			throw new IllegalArgumentException(String.format("야구공이 세개여야 합니다. 현재 갯수: %d", baseballs.size()));
 		}

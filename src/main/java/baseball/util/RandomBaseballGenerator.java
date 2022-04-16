@@ -24,7 +24,7 @@ public class RandomBaseballGenerator {
 
 	public static BaseballBundle generate() {
 		Set<Baseball> baseballs = Sets.newHashSet();
-		while (!BaseballBundle.validToCreate(baseballs)) {
+		while (!BaseballBundle.enoughToCreate(baseballs)) {
 			baseballs.add(Baseball.from(baseballs.size() + 1, Randoms.pickNumberInList(NUMBERS)));
 		}
 		return BaseballBundle.from(baseballs);
