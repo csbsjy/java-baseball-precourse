@@ -6,7 +6,7 @@
  */
 package baseball.domain;
 
-enum BaseballGameResult {
+public enum BaseballGameResult {
 	STRIKE,
 	BALL,
 	NOTHING
