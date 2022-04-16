@@ -14,9 +14,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-/**
- * @author csbsjy
- */
 class StringTest {
 
 	@DisplayName("요구사항1) ,로 구분된 숫자들을 배열로 분리한다.")

@@ -6,9 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-/**
- * @author Jaeyeon Seo(KR20144)
- */
 class BaseballNumberTest {
 
 	@DisplayName("야구공은 1과 9사이의 숫자가 아니면 Exception을 던진다")

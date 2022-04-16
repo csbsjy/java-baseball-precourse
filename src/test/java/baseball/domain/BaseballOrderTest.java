@@ -6,9 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-/**
- * @author Jaeyeon Seo(KR20144)
- */
 class BaseballOrderTest {
 
 	@DisplayName("야구공은 1-3번째 순서에 위치하지 않으면 Exception 을 던진다")

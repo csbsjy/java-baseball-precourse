@@ -18,9 +18,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-/**
- * @author Jaeyeon Seo(KR20144)
- */
 class SetTest {
 	private Set<Integer> numbers;
 

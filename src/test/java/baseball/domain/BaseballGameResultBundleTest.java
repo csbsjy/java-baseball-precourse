@@ -5,9 +5,6 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-/**
- * @author Jaeyeon Seo(KR20144)
- */
 class BaseballGameResultBundleTest {
 
 	@DisplayName("이미 결과가 세개 이상인 결과 번들에 결과를 추가하면 Exception")

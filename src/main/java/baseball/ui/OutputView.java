@@ -1,9 +1,3 @@
-/**
- * @(#)OutputView.java 2022. 04. 17
- *
- * Copyright 2022 Naver Corp. All rights Reserved.
- * Naver PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
- */
 package baseball.ui;
 
 import baseball.domain.BaseballGameResult;
