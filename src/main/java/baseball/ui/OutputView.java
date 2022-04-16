@@ -9,9 +9,6 @@ package baseball.ui;
 import baseball.domain.BaseballGameResult;
 import baseball.domain.BaseballGameResultBundle;
 
-/**
- * @author Jaeyeon Seo(KR20144)
- */
 public class OutputView {
 	private OutputView() {
 	}
@@ -26,5 +23,9 @@ public class OutputView {
 			System.out.print(String.format("%d스트라이크 ", strikeCount));
 		}
 		System.out.println();
+	}
+
+	public static void printFinishGame() {
+		System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종");
 	}
 }

@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
 
-import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,8 +13,7 @@ class BaseballBundleTest {
 	@DisplayName("야구공이 세개가 아니면 Exception을 던진다")
 	@Test
 	void exceptionCount() {
-		assertThatThrownBy(() -> BaseballBundle.from(Sets.newHashSet(Arrays.asList(Baseball.from(1, 1),
-			Baseball.from(2, 2)))))
+		assertThatThrownBy(() -> BaseballBundle.from(Arrays.asList(1, 2)))
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessage("야구공이 세개여야 합니다. 현재 갯수: 2");
 	}
@@ -24,10 +22,8 @@ class BaseballBundleTest {
 	@Test
 	void compare() {
 		//given
-		BaseballBundle computerBalls = BaseballBundle.from(Sets.set(Baseball.from(1, 3), Baseball.from(2, 7),
-			Baseball.from(3, 9)));
-		BaseballBundle userBalls = BaseballBundle.from(Sets.set(Baseball.from(1, 3), Baseball.from(2, 9),
-			Baseball.from(3, 1)));
+		BaseballBundle computerBalls = BaseballBundle.from(Arrays.asList(3, 7, 9));
+		BaseballBundle userBalls = BaseballBundle.from(Arrays.asList(3, 9, 1));
 
 		//when
 		BaseballGameResultBundle baseballGameResultBundle = computerBalls.compareWith(userBalls);

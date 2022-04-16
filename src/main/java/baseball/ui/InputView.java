@@ -11,9 +11,6 @@ import java.util.List;
 
 import camp.nextstep.edu.missionutils.Console;
 
-/**
- * @author Jaeyeon Seo(KR20144)
- */
 public class InputView {
 	private InputView() {
 	}
@@ -21,8 +18,15 @@ public class InputView {
 	public static List<Integer> requestNumbers() {
 		System.out.println("숫자를 입력해주세요 : ");
 		int input = Integer.parseInt(Console.readLine());
-		final List<Integer> integers = Arrays.asList(input / 100, input / 10 % 10, input % 10);
-		System.out.println(integers);
-		return integers;
+		return Arrays.asList(input / 100, input / 10 % 10, input % 10);
+	}
+
+	public static int askAgainGame() {
+		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+		int response = Integer.parseInt(Console.readLine());
+		if (response != 1 && response != 2) {
+			throw new IllegalArgumentException("잘못된 입력값입니다");
+		}
+		return response;
 	}
 }

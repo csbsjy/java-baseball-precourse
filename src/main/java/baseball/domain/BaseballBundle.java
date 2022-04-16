@@ -7,6 +7,7 @@
 package baseball.domain;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class BaseballBundle {
@@ -14,17 +15,17 @@ public class BaseballBundle {
 
 	private final Set<Baseball> baseballs;
 
-	private BaseballBundle(Set<Baseball> baseballs) {
+	private BaseballBundle(List<Integer> numbers) {
+		Set<Baseball> baseballs = new HashSet<>();
+		for (int i = 0; i < numbers.size(); i++) {
+			baseballs.add(Baseball.from(i + 1, numbers.get(i)));
+		}
 		this.baseballs = baseballs;
 		checkUniqueBallCounts(baseballs);
 	}
 
-	public static BaseballBundle from(Set<Baseball> baseballs) {
+	public static BaseballBundle from(List<Integer> baseballs) {
 		return new BaseballBundle(baseballs);
-	}
-
-	public static boolean enoughToCreate(Set<Baseball> baseballs) {
-		return baseballs.size() == BALL_COUNT;
 	}
 
 	public BaseballGameResultBundle compareWith(BaseballBundle inputBaseballs) {

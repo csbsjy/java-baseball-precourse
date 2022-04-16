@@ -9,7 +9,7 @@ package baseball.domain;
 import java.util.Objects;
 
 public class Baseball {
-	private final BaseballOrder order; // Domain 으로 빼기
+	private final BaseballOrder order;
 	private final BaseballNumber number;
 
 	private Baseball(int order, int number) {
